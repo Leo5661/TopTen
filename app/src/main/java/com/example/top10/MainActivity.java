@@ -14,14 +14,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-         ArrayList<String> list = new ArrayList<String>();
+         ArrayList<main_class> list = new ArrayList<>();
+
+        list.add(new main_class(R.drawable.twitter,"Twitter"));
+        list.add(new main_class(R.drawable.facebook,"Facebook"));
+        list.add(new main_class(R.drawable.ic_launcher_foreground,"Instagram"));
+        list.add(new main_class(R.drawable.ic_launcher_foreground,"Youtube"));
+
         ListView listView = findViewById(R.id.list_view);
-        list.add("Twitter");
-        list.add("Facebook");
-        list.add("Instagram");
-        list.add("Youtube");
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list);
-        listView.setAdapter(arrayAdapter);
+        main_adapter adapter = new main_adapter(list,this);
+        listView.setAdapter(adapter);
     }
 
 
