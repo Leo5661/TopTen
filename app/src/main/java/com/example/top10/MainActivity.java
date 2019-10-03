@@ -2,6 +2,7 @@ package com.example.top10;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,6 +32,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(),  list.get(position).getCompany(),Toast.LENGTH_SHORT).show();
+                if(position==0)
+                {
+                    Intent TwitterIntent = new Intent(MainActivity.this,TwitterClass.class);
+                    startActivity(TwitterIntent);
+                }
+                if(position==1)
+                {
+                    Intent FacebookIntent = new Intent(MainActivity.this,FacebookClass.class);
+                    startActivity(FacebookIntent);
+                }
             }
         });
     }
